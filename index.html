@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Public Demo Index - Open public demos for stroke research and clinical tooling</title>
+<meta name="description" content="Personal academic portal for open, browser-only public demos and research utilities for stroke evidence review, trial screening prototypes, telestroke methods, and clinical research." />
+<meta name="theme-color" content="#2b1b54" />
+<meta property="og:title" content="Public Demo Index - Open public demos for stroke research and clinical tooling" />
+<meta property="og:description" content="Personal academic portal for open browser-only public demos and research utilities for stroke evidence review, trial screening prototypes, telestroke methods, and clinical research." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/" />
+<link rel="canonical" href="/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf6;
+    --bg-elev: #ffffff;
+    --bg-tint: #f3eff7;
+    --ink: #1a1426;
+    --ink-soft: #4a3f5d;
+    --ink-muted: #6e6580;
+    --line: #e4dfee;
+    --line-strong: #c9bfdc;
+    --accent: #4B2E83;
+    --accent-deep: #2b1b54;
+    --accent-soft: #ede5fa;
+    --gold: #B7A57A;
+    --gold-deep: #8a7a52;
+    --danger: #b32f3f;
+    --success: #0b7c4f;
+    --radius: 14px;
+    --shadow-sm: 0 1px 2px rgba(43, 27, 84, 0.06), 0 1px 1px rgba(43, 27, 84, 0.04);
+    --shadow-md: 0 8px 24px -8px rgba(43, 27, 84, 0.18), 0 2px 4px rgba(43, 27, 84, 0.06);
+    --shadow-lg: 0 24px 48px -16px rgba(43, 27, 84, 0.28);
+    --serif: 'Fraunces', 'Source Serif Pro', Georgia, 'Iowan Old Style', serif;
+    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14101f;
+      --bg-elev: #1d1830;
+      --bg-tint: #251d3d;
+      --ink: #f3eef9;
+      --ink-soft: #c6bcd9;
+      --ink-muted: #8e84a3;
+      --line: #2e2645;
+      --line-strong: #3f3460;
+      --accent: #b39ce8;
+      --accent-deep: #d2bfff;
+      --accent-soft: #2a1f4a;
+      --gold: #d9c79a;
+      --gold-deep: #b59c5e;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--accent-deep); }
+  ::selection { background: var(--accent-soft); color: var(--accent-deep); }
+
+  /* skip link */
+  .skip {
+    position: absolute; left: -9999px;
+    background: var(--accent); color: white; padding: 12px 16px;
+    border-radius: 6px; font-weight: 600;
+  }
+  .skip:focus { left: 12px; top: 12px; z-index: 100; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(160%) blur(12px);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 14px; padding-bottom: 14px;
+    gap: 16px;
+  }
+  .brand {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--ink); text-decoration: none;
+    letter-spacing: -0.01em; font-size: 1.05rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .brand .glyph {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+    color: white; display: grid; place-items: center;
+    font-family: var(--serif); font-weight: 700; font-size: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  nav.top ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; gap: 22px; align-items: center;
+    font-size: 0.94rem; font-weight: 500;
+  }
+  nav.top ul a {
+    color: var(--ink-soft); text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.top ul a:hover { color: var(--accent-deep); border-bottom-color: var(--accent); }
+  @media (max-width: 720px) {
+    nav.top ul li:not(:last-child) { display: none; }
+  }
+
+  /* Hero */
+  header.hero {
+    padding: 84px 0 56px;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 0%, var(--accent-soft) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 0% 20%, color-mix(in srgb, var(--gold) 18%, transparent) 0%, transparent 50%);
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 22px;
+    padding: 6px 12px; border-radius: 999px;
+    background: var(--bg-elev); border: 1px solid var(--line);
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 18%, transparent); }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    font-weight: 600;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+    max-width: 18ch;
+  }
+  h1 em {
+    font-style: italic; font-weight: 500;
+    color: var(--accent);
+  }
+  .lede {
+    font-size: clamp(1.1rem, 1.8vw, 1.32rem);
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 60ch; margin: 0 0 32px;
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; border-radius: 10px;
+    font-weight: 600; font-size: 0.96rem;
+    text-decoration: none; transition: all .15s ease;
+    border: 1.5px solid transparent;
+  }
+  .btn-primary { background: var(--accent-deep); color: white; }
+  .btn-primary:hover { background: var(--accent); color: white; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .btn-ghost { background: var(--bg-elev); color: var(--ink); border-color: var(--line-strong); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-deep); }
+  .btn svg { width: 16px; height: 16px; }
+
+  .meta-row {
+    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 4px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .meta-cell { padding: 8px 18px 8px 0; }
+  .meta-cell + .meta-cell { border-left: 1px solid var(--line); padding-left: 22px; }
+  .meta-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px; }
+  .meta-value { font-size: 0.96rem; color: var(--ink); font-weight: 500; }
+  @media (max-width: 720px) {
+    .meta-cell + .meta-cell { border-left: none; padding-left: 0; }
+  }
+
+  /* Section headers */
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  .section-eyebrow {
+    font-family: var(--serif); font-style: italic;
+    font-size: 0.95rem; color: var(--accent);
+    margin: 0 0 8px; font-weight: 500;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+    line-height: 1.15; letter-spacing: -0.02em;
+    margin: 0 0 16px; color: var(--ink);
+    max-width: 24ch;
+  }
+  .section-lede {
+    color: var(--ink-soft); font-size: 1.06rem;
+    max-width: 62ch; margin: 0 0 40px;
+  }
+
+  /* Tool grid */
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 18px;
+  }
+  .tool {
+    display: flex; flex-direction: column;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-decoration: none; color: inherit;
+    transition: all .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 70%, color-mix(in srgb, var(--accent) 4%, transparent) 100%);
+    opacity: 0; transition: opacity .2s ease;
+    pointer-events: none;
+  }
+  .tool:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .tool:hover::before { opacity: 1; }
+  .tool:hover .arrow { transform: translate(2px, -2px); color: var(--accent); }
+  .tool.featured {
+    background: linear-gradient(180deg, var(--bg-elev) 0%, color-mix(in srgb, var(--accent-soft) 60%, var(--bg-elev)) 100%);
+    border-color: var(--line-strong);
+  }
+  .tool-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .tool-tag {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); padding: 3px 8px;
+    border-radius: 999px; background: var(--accent-soft);
+  }
+  .tool-tag.featured-tag { background: var(--accent); color: white; }
+  .tool-tag.gold { color: var(--gold-deep); background: color-mix(in srgb, var(--gold) 28%, transparent); }
+  .arrow {
+    width: 22px; height: 22px; color: var(--ink-muted);
+    transition: transform .2s ease, color .2s ease;
+    flex-shrink: 0;
+  }
+  .tool h3 {
+    font-family: var(--serif); font-size: 1.32rem;
+    font-weight: 600; line-height: 1.2; margin: 0 0 8px;
+    color: var(--ink); letter-spacing: -0.012em;
+  }
+  .tool p {
+    margin: 0 0 16px; font-size: 0.95rem;
+    color: var(--ink-soft); line-height: 1.5; flex-grow: 1;
+  }
+  .tool-foot {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.82rem; color: var(--ink-muted);
+    padding-top: 12px; border-top: 1px dashed var(--line);
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .tool-foot .audience { color: var(--ink-soft); font-family: var(--sans); font-size: 0.85rem; }
+
+  /* About */
+  .about-grid {
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .about p { color: var(--ink-soft); font-size: 1.04rem; line-height: 1.7; margin: 0 0 18px; }
+  .about p strong { color: var(--ink); font-weight: 600; }
+  .pull {
+    background: var(--bg-tint);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 1.08rem; line-height: 1.55;
+  }
+  dl.facts {
+    margin: 0; padding: 24px; background: var(--bg-elev);
+    border: 1px solid var(--line); border-radius: var(--radius);
+  }
+  dl.facts > div { display: grid; grid-template-columns: 1fr; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+  dl.facts > div:last-child { border-bottom: none; }
+  dl.facts dt { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px; }
+  dl.facts dd { margin: 0; color: var(--ink); font-size: 0.96rem; }
+
+  /* Principles */
+  .principles {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .principle { padding: 4px 0; }
+  .principle .num {
+    font-family: var(--serif); font-size: 1.6rem; color: var(--accent);
+    line-height: 1; font-weight: 600;
+    display: block; margin-bottom: 10px;
+  }
+  .principle h3 {
+    font-family: var(--serif); font-size: 1.18rem; font-weight: 600;
+    margin: 0 0 8px; color: var(--ink); letter-spacing: -0.01em;
+  }
+  .principle p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; line-height: 1.55; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 56px 0 36px;
+    color: var(--ink-muted); font-size: 0.92rem;
+  }
+  footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; }
+  @media (max-width: 720px) { footer .wrap { grid-template-columns: 1fr; } }
+  footer h4 { color: var(--ink); font-size: 0.86rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 14px; font-weight: 600; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  .colophon { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; max-width: 38ch; }
+  .footer-base {
+    margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 0.82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<nav class="top" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#"><span class="glyph">PD</span> Public Demo Index</a>
+    <ul>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="https://github.com/example">GitHub →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span> 13 public demos · open source · no PHI</div>
+    <h1>Open, browser-only public demos for <em>stroke evidence and research tooling</em>.</h1>
+    <p class="lede"><strong>Clinical researcher and public-demo tool builder.</strong> I build static-web, local-first demos for stroke evidence review, clinical-trial eligibility prototypes, telestroke methods, and the statistical scaffolding that makes clinical research reproducible.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/stroke/">
+        Open Stroke Demo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#tools">See all tools</a>
+    </div>
+    <div class="meta-row">
+      <div class="meta-cell"><div class="meta-label">Role</div><div class="meta-value">Clinical research</div></div>
+      <div class="meta-cell"><div class="meta-label">Mode</div><div class="meta-value">Personal public demos</div></div>
+      <div class="meta-cell"><div class="meta-label">Focus</div><div class="meta-value">Stroke · Telestroke · CDS</div></div>
+      <div class="meta-cell"><div class="meta-label">Stack</div><div class="meta-value">Static web · Zero backend</div></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="tools" aria-labelledby="tools-heading">
+  <div class="wrap">
+    <p class="section-eyebrow">What's live</p>
+    <h2 id="tools-heading">Tools you can open in a new tab right now.</h2>
+    <p class="section-lede">Every link below is a deployed, browser-only public demo or static reference site. No accounts, no analytics, and no PHI should ever be entered. Click anywhere on a card to open the tool.</p>
+    <div style="margin:18px 0 28px;padding:14px 16px;border:1px solid #d49d25;background:#fff8e6;color:#6f4b00;border-radius:8px;font-size:0.95rem;line-height:1.5;">
+      <strong>Public-surface boundary.</strong> These are personal academic demos, not official systems.
+      Do not enter patient identifiers, learner records, research participant information, confidential data, or restricted research data. Operational use requires an approved environment and governance review.
+    </div>
+
+    <div class="tools">
+
+      <a class="tool featured" href="/stroke/">
+        <div class="tool-head">
+          <span class="tool-tag featured-tag">Flagship</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Stroke CDS</h3>
+        <p>Synthetic public demo with calculators and evidence summaries for acute stroke education. Ward census and patient-context persistence are disabled on public GitHub Pages.</p>
+        <div class="tool-foot"><span>v6.2.0 demo</span> · <span class="audience">Education · prototyping</span></div>
+      </a>
+
+      <a class="tool" href="/n-epi/">
+        <div class="tool-head">
+          <span class="tool-tag">Research toolkit</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>n-epi</h3>
+        <p>Sample size, power analysis, meta-analysis, survival, NNT, diagnostic accuracy, causal inference, NIH-style methods text. Zero dependencies, fully client-side.</p>
+        <div class="tool-foot"><span>20+ tools</span> · <span class="audience">Clinical researchers · biostatisticians</span></div>
+      </a>
+
+      <a class="tool" href="/stroke-trials-screener/">
+        <div class="tool-head">
+          <span class="tool-tag">Point-of-care</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Stroke Trials Screener</h3>
+        <p>Synthetic public demo for stroke-trial eligibility logic. URL patient prefill is disabled on public GitHub Pages; verify all criteria against approved trial materials.</p>
+        <div class="tool-foot"><span>Mobile-first demo</span> · <span class="audience">Education · workflow design</span></div>
+      </a>
+
+      <a class="tool" href="/telestroke-expansion-map/">
+        <div class="tool-head">
+          <span class="tool-tag">Network planning</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Stroke Access Map</h3>
+        <p>Synthetic map demo of stroke capability tiers and EVT access using de-identified facilities.</p>
+        <div class="tool-foot"><span>Synthetic region</span> · <span class="audience">Public reference</span></div>
+      </a>
+
+      <a class="tool" href="/proteomics-power-calc/">
+        <div class="tool-head">
+          <span class="tool-tag">Biostatistics</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Proteomics Power Calc</h3>
+        <p>PWAS power analysis. Cox proportional hazards, linear, logistic, modified Poisson, GEE/mixed effects. BH-FDR & Bonferroni. Cohort, case-cohort, nested case-control designs.</p>
+        <div class="tool-foot"><span>5 model classes</span> · <span class="audience">Omics · biostat</span></div>
+      </a>
+
+      <a class="tool" href="/esoc-2026-data-hub/">
+        <div class="tool-head">
+          <span class="tool-tag gold">Evidence hub</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>ESOC 2026 Data Hub</h3>
+        <p>Source-verified database of every late-breaking trial, large clinical study, and high-impact observational analysis from ESOC 2026 (Maastricht, 6–8 May 2026).</p>
+        <div class="tool-foot"><span>LBTs · presented</span> · <span class="audience">Stroke community</span></div>
+      </a>
+
+      <a class="tool" href="/stroke-eligibility-tables-embed/">
+        <div class="tool-head">
+          <span class="tool-tag">Embeddable</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Eligibility Tables</h3>
+        <p>Reference table and code preview for study eligibility. Do not iframe or copy into official sites, EHR wikis, or recruitment pages without governance review.</p>
+        <div class="tool-foot"><span>Code preview</span> · <span class="audience">Study-owner review</span></div>
+      </a>
+
+      <a class="tool" href="/stroke-mri-prototype/">
+        <div class="tool-head">
+          <span class="tool-tag">Order set</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Stroke MRI Order Set</h3>
+        <p>Synthetic order-set UI prototype for limited hyperacute stroke MRI. Not an operational EHR workflow and not approved for patient-care use.</p>
+        <div class="tool-foot"><span>React prototype</span> · <span class="audience">Workflow discussion</span></div>
+      </a>
+
+      <a class="tool" href="/telestroke-growth-simulator/">
+        <div class="tool-head">
+          <span class="tool-tag">Simulation</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Telestroke Growth Simulator</h3>
+        <p>Synthetic scenario model for telestroke growth methods. No real volumes, partner counts, transfer counts, or forecasts are included.</p>
+        <div class="tool-foot"><span>Scenario demo</span> · <span class="audience">Simulation methods</span></div>
+      </a>
+
+      <a class="tool" href="/stroke-clinic-q/">
+        <div class="tool-head">
+          <span class="tool-tag">Clinic intake</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Stroke Clinic Questionnaire</h3>
+        <p>Synthetic public demo for pre-visit questionnaire design. Not for real patient intake, patient-portal substitution, or document generation with patient information.</p>
+        <div class="tool-foot"><span>Demo only</span> · <span class="audience">Workflow prototyping</span></div>
+      </a>
+
+      <a class="tool" href="/FTEcalculator/">
+        <div class="tool-head">
+          <span class="tool-tag">Faculty tools</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>FTE Calculator</h3>
+        <p>Academic-medicine effort allocation across clinical, research, education, and administrative buckets — with NIH-style summaries.</p>
+        <div class="tool-foot"><span>Faculty effort</span> · <span class="audience">Academic medicine</span></div>
+      </a>
+
+      <a class="tool" href="/agent-builder-field-guide/">
+        <div class="tool-head">
+          <span class="tool-tag gold">Field guide</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Agent Builder Field Guide</h3>
+        <p>Vendor-neutral guide to building, configuring, testing, and operating AI agents across Claude, Gemini, GPT, Codex, Copilot, and MCP. Source-verified, drift-aware.</p>
+        <div class="tool-foot"><span>MkDocs Material</span> · <span class="audience">Engineers · researchers</span></div>
+      </a>
+
+      <a class="tool" href="/claude/">
+        <div class="tool-head">
+          <span class="tool-tag gold">Beginner guide</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>Learn Claude</h3>
+        <p>Beginner-first guide for using Claude across chat, uploads, Research, Projects, Artifacts, Design, Cowork, Code, Office, Chrome, connectors, skills, plugins. No jargon.</p>
+        <div class="tool-foot"><span>Independent</span> · <span class="audience">Newcomers to AI tools</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-heading">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about">
+        <p class="section-eyebrow">About</p>
+        <h2 id="about-heading">Practice, evidence, and the tools that close the gap between them.</h2>
+        <p>I build public demo code at the intersection of acute stroke evidence, access modeling, clinical research methods, and reviewable software. My work sits where <strong>three pressures converge</strong>: clinicians needing fast, defensible evidence review; networks needing rigorous public methods for access modeling; and researchers needing tools that do not get in the way.</p>
+        <p>Everything published here is meant to be opened, reviewed, and forked as public demo code. The constraint that makes the tools teachable - <strong>static HTML, no backend, no analytics, no PHI</strong> - also makes them easy to audit before any approved deployment.</p>
+        <div class="pull">"If a tool cannot be opened and inspected in a single browser tab, it is not ready to be adapted responsibly."</div>
+      </div>
+      <aside>
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Clinical researcher</dd></div>
+          <div><dt>Mode</dt><dd>Personal public-demo tooling</dd></div>
+          <div><dt>Clinical focus</dt><dd>Acute ischemic & hemorrhagic stroke, telestroke, transitions of care</dd></div>
+          <div><dt>Research focus</dt><dd>Stroke epidemiology, trial design, decision-support tooling</dd></div>
+          <div><dt>Email</dt><dd>Contact available on request</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="approach" aria-labelledby="approach-heading">
+  <div class="wrap">
+    <p class="section-eyebrow">How these tools are built</p>
+    <h2 id="approach-heading">Four principles, applied across every release.</h2>
+    <p class="section-lede">These aren't aspirations — they're the design constraints I work backward from. If a feature can't be shipped without violating one of them, it doesn't ship.</p>
+    <div class="principles">
+      <div class="principle">
+        <span class="num">01</span>
+        <h3>Local-first, no PHI</h3>
+        <p>Data stays in the browser for demos, but public GitHub Pages is not approved storage. No patient identifiers, learner records, restricted data, or confidential data should be entered.</p>
+      </div>
+      <div class="principle">
+        <span class="num">02</span>
+        <h3>Evidence-anchored</h3>
+        <p>Every clinical recommendation traces to a primary citation (PMID / DOI / NCT). Trial eligibility logic is unit-tested. Drift is flagged.</p>
+      </div>
+      <div class="principle">
+        <span class="num">03</span>
+        <h3>Review-grade speed</h3>
+        <p>Mobile-first, static, and easy to inspect. Real operational use belongs in an approved hosting, storage, and governance path.</p>
+      </div>
+      <div class="principle">
+        <span class="num">04</span>
+        <h3>Open and forkable</h3>
+        <p>MIT-licensed. Static HTML. Zero proprietary dependencies. Any clinician or researcher can read the code, fork the repo, and adapt for their own environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>Public Demo Index</h4>
+      <p class="colophon">Open, browser-only public demos for stroke evidence review, clinical research, and telestroke methods. Personal academic work; not endorsed by any organization.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="/stroke/">Stroke CDS</a></li>
+        <li><a href="/n-epi/">n-epi research toolkit</a></li>
+        <li><a href="/stroke-trials-screener/">Trials screener</a></li>
+        <li><a href="/telestroke-expansion-map/">Telestroke map</a></li>
+        <li><a href="#tools">See all 13 →</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <ul>
+        <li><a href="https://github.com/example">GitHub</a></li>
+        <li><a href="#">Contact available on request</a></li>
+      </ul>
+    </div>
+    <div class="footer-base" style="grid-column: 1 / -1;">
+      <span>© 2026 Project Contributors · MIT-licensed where applicable</span>
+      <span>For clinicians: public tools here are synthetic/demo/reference surfaces, not medical advice or official systems.</span>
+    </div>
+  </div>
+</footer></body>
+</html>

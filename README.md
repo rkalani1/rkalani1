@@ -5,7 +5,7 @@
 **Clinical researcher · Open public-demo tool builder**
 
 [![Stroke](https://img.shields.io/badge/focus-stroke%20%C2%B7%20epidemiology%20%C2%B7%20public%20demos-4B2E83?style=flat-square)](#)
-[![Open Tools](https://img.shields.io/badge/open%20tools-live-success?style=flat-square)](https://example.github.io)
+[![Open Tools](https://img.shields.io/badge/open%20tools-live-success?style=flat-square)](https://rkalani1.github.io/)
 
 </div>
 
@@ -24,7 +24,7 @@ I build **open, vendor-neutral public demos and research utilities** for evidenc
 | **[Stroke CDS](/stroke/)** | Synthetic public demo: calculators and evidence summaries without census or patient-context persistence. | Stroke education, prototyping |
 | **[n-epi](/n-epi/)** | Sample size, power, meta-analysis, survival, NNT, diagnostic accuracy, causal inference. Zero dependencies. | Clinical researchers, epidemiologists |
 | **[Stroke Trials Screener](/stroke-trials-screener/)** | Synthetic public demo for stroke-trial eligibility logic; URL patient prefill disabled. | Stroke education, trial workflow prototyping |
-| **[Stroke Access Map](/telestroke-expansion-map/)** | Synthetic map demo of stroke capability tiers and EVT access using de-identified facilities. | Methods demos |
+| **[Telestroke Expansion Map](/telestroke-expansion-map/)** | Synthetic map demo of stroke capability tiers and EVT access using de-identified facilities. | Methods demos |
 | **[Proteomics Power Calc](/proteomics-power-calc/)** | PWAS power analysis: Cox, linear, logistic, mod-Poisson, GEE; BH-FDR and Bonferroni. | Omics researchers, biostatisticians |
 | **[ESOC 2026 Data Hub](/esoc-2026-data-hub/)** | Source-verified database of late-breaking trials from ESOC 2026. | Stroke community |
 | **[Eligibility Tables](/stroke-eligibility-tables-embed/)** | Public reference/code preview; not approved for EHR, intranet, patient-facing, or recruitment embedding without governance review. | Study-owner review, methods demos |
@@ -66,7 +66,7 @@ I build **open, vendor-neutral public demos and research utilities** for evidenc
 ## Contact
 
 - **Email:** contact available on request
-- **GitHub Pages portal:** [example.github.io](https://example.github.io)
+- **GitHub Pages portal:** [rkalani1.github.io](https://rkalani1.github.io/)
 
 <div align="center">
 
